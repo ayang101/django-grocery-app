@@ -1,0 +1,51 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- table to display receipt information -->
+<table>
+
+    <thead>
+        <tr>
+            <th scope="col">Store</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Date Visited</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for receipt in object_list %}
+            {% if receipt %}
+                <tr>
+                    <td>{{ receipt.store }}</td>
+                    <td>{{ receipt.total_price }}</td>
+                    <td>{{ receipt.date_visited }}</td>
+                    <td>
+                        <a href="{% url 'receipt-detail' receipt.pk %}">
+                            <button type="submit">Details</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete-receipt' receipt.pk %}">
+                            <button type="submit">Remove</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- receipt form -->
+<form action="{% url 'add-receipt' %}" method="POST" role="form">
+    {% csrf_token %}
+    {{ form.as_table }}
+
+    <a href="{% url 'add-receipt' %}">
+        <button type="submit">Save</button>
+    </a>
+</form>
+
+{% endblock content %}

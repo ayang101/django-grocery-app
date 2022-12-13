@@ -1,0 +1,12 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+
+{% block content%}
+
+    {% for receiptitem in object_list %}
+        <p>{{ receiptitem }}</p>
+    {% endfor %}
+
+
+
+{% endblock content %}

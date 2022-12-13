@@ -1,0 +1,18 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <p>{{ receipt_detail.store }}</p>
+
+    {% for receiptitem in receipt_detail.item_set.all %}
+        <ul>
+            <li>Name: {{ receiptitem.name }}</li>
+            <li>Quantity: {{ receiptitem.quantity }}</li>
+            <li>Price: {{ receiptitem.price }}</li>
+            <!--<li>Price per unit : {{ receipt_detail.first.price_per_unit }}</li>-->
+            <li>Category: {{ receiptitem.category }}</li>
+        </ul>
+    {% endfor %}
+
+{% endblock content %}

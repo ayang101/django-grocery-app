@@ -1,0 +1,32 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+
+{% block content%}
+    <!--
+        {% for each post in posts %}
+            {{ post.author.profile.image.url }}
+    -->
+
+    <body>
+
+    {% for group in object_list %}
+        <a href="{% url 'group-detail' %}">
+            {{ group.name }}
+        </a>
+    {% endfor %}
+
+    <!--<img src="{{ group.users.profile.image.url }}">-->
+
+    <!-- group form -->
+    <form action="{% url 'create-group' %}" method="POST" role="form">
+        {% csrf_token %}
+        {{ form.as_table }}
+
+        <a href="{% url 'create-group' %}">
+            <button type="submit">Create</button>
+        </a>
+    </form>
+
+    </body>
+
+{% endblock content %}

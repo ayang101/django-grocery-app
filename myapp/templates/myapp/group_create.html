@@ -1,0 +1,40 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+
+{% block content%}
+
+<table>
+    <tbody>
+    {% for group in object_list %}
+        {% if group %}
+            <tr>
+                <td>
+                    <a href="{% url 'group-detail' group.pk %}">
+                        <button type="submit">{{ group.name }}</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'group-delete' group.pk %}">
+                        <button type="submit">Delete</button>
+                    </a>
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+
+    <!--<img src="{{ group.users.profile.image.url }}">-->
+
+    </tbody>
+</table>
+
+    <!-- group form -->
+    <form action="{% url 'create-group' %}" method="POST" role="form">
+        {% csrf_token %}
+        {{ form.as_table }}
+
+        <a href="{% url 'create-group' %}">
+            <button type="submit">Create</button>
+        </a>
+    </form>
+
+{% endblock content %}

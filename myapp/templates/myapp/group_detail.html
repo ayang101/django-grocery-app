@@ -1,0 +1,10 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    {{ group.name }}
+
+    <a href="{% url 'add-receipt' %}">Add Receipt</a>
+
+{% endblock content %}
