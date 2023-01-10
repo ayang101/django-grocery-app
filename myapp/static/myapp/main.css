@@ -1,16 +1,52 @@
-nav {
+body {
     margin: 0;
     padding: 0;
-    background: #4ccfb5;
+    font-size: 15px;
 }
 
-img.logo {
+nav {
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-left {
+    float: left;
+}
+
+.nav-right {
+    float: right;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav ul li a {
+    color: white;
+    display: block;
+    margin: auto;
+    padding: 30px;
+}
+
+.logo {
+    float: left;
+    position: relative;
+    margin: 10px 15px 15px 10px;
     height: auto;
-    width: 10%;
+    width: 5%;
 }
 
-table {
-    border-collapse: collapse;
+.top {
+    background: #4ccfb5;
+    overflow: hidden;
 }
 
 th, td {

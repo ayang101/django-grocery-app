@@ -7,7 +7,7 @@ class Item(models.Model):
     name = models.CharField(max_length=100)
     quantity = models.PositiveIntegerField(null=True, blank=True, default=None)
     price = models.FloatField(null=True, blank=True, default=None)
-    category = models.CharField(max_length=100)
+    category = models.CharField(max_length=100, blank=False)
     # item can be in many receipts
     receipts = models.ManyToManyField('Receipt', through='ReceiptItem')
 
